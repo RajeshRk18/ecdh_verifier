@@ -4,8 +4,8 @@ use dep::noir_bigint_curves::ecdsa_secp256k1::fq::PrimeField as Fq;
 use dep::noir_bigint_curves::ecdsa_secp256k1::swcurve::Point;
 use dep::noir_biguint::BigUint56;
 
-fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) {
-    let Ed25519 { curve, cofactor } = ed25519();
+fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) -> bool{
+    let Secp256k1 { curve } = secp256k1();
 
     let secret_key: [u8] = secret_key;
     let pub_x: [u8] = pub_key.0;
@@ -30,5 +30,5 @@ fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), p
 
     let computed_shared_key_point = curve.mul(secret_key, pub_key_point);
 
-    assert(computed_shared_key_point.eq(shared_key_point));
+    computed_shared_key_point.eq(shared_key_point)
 }

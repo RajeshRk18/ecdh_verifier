@@ -4,7 +4,7 @@ use dep::noir_bigint_curves::ed25519::fq::PrimeField as Fq;
 use dep::noir_bigint_curves::ed25519::tecurve::Point;
 use dep::noir_biguint::BigUint56;
 
-fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) {
+fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) -> bool {
     let Ed25519 { curve, cofactor } = ed25519();
 
     let secret_key: [u8] = secret_key;
@@ -30,5 +30,5 @@ fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), p
 
     let computed_shared_key_point = curve.mul(secret_key, pub_key_point);
 
-    assert(computed_shared_key_point.eq(shared_key_point));
+    computed_shared_key_point.eq(shared_key_point)
 }
