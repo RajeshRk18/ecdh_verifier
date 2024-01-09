@@ -17,4 +17,4 @@
 
 - Every TLS session involves a handshake where the client(user) and the server agree on a shared secret key which can be later used to encrypt/decrypt messages exchanged between them. If an user can prove that he/she is either a client or a server, then the interaction can be authenticated onchain. This can be used for a lot use cases such as anonymous web authentication, access control systems, and so on.
 
-- Lets assume an ideal communication protocol that is instantiated between two parties with the shared secret key. One of the parties can anonymously prove such communication onchain.
+- Assume an ideal communication protocol that is instantiated between person A and person B with the shared secret key. One of the parties can anonymously prove such communication onchain.
