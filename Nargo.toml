@@ -1,10 +1,10 @@
 [package]
 name = "ecdh_decryption_verifier"
 type = "lib"
-authors = [""]
-compiler_version = ">=0.19.2"
+authors = ["Rajesh Kanna"]
+compiler_version = ">=0.22.0"
 
 [dependencies]
-noir_bigint_curves = { tag = "v0.2.0", git = "https://github.com/shuklaayush/noir-bigint", directory="crates/curves" }
-noir_biguint = { tag = "v0.2.0", git = "https://github.com/shuklaayush/noir-bigint", directory="crates/biguint" }
-noir_bigint_primefield = { tag = "v0.2.0", git = "https://github.com/shuklaayush/noir-bigint", directory="crates/primefield" }
+noir_bigint_curves = { path = "../noir_bigint/crates/curves" }
+noir_biguint = { path = "../noir_bigint/crates/biguint" }
+noir_bigint_primefield = { path = "../noir_bigint/crates/primefield" }

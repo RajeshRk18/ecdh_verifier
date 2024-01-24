@@ -4,7 +4,11 @@ use dep::noir_bigint_curves::ecdsa_secp256k1::fq::PrimeField as Fq;
 use dep::noir_bigint_curves::ecdsa_secp256k1::swcurve::{Point, Curve};
 use dep::noir_biguint::BigUint56;
 
-pub fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) -> bool{
+pub fn verify_ecdh(
+    secret_key: [u8; 32],
+    shared_key: ([u8; 32], [u8; 32]),
+    pub_key: ([u8; 32], [u8; 32])
+) -> bool {
     let Secp256k1 { curve } = secp256k1();
 
     let secret_key: [u8] = secret_key;

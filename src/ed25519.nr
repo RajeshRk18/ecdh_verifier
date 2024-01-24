@@ -4,7 +4,11 @@ use dep::noir_bigint_curves::ed25519::fq::PrimeField as Fq;
 use dep::noir_bigint_curves::ed25519::tecurve::{Point, Curve};
 use dep::noir_biguint::BigUint56;
 
-fn verify_ecdh_decrypt(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) -> bool {
+pub fn verify_ecdh(
+    secret_key: [u8; 32],
+    shared_key: ([u8; 32], [u8; 32]),
+    pub_key: ([u8; 32], [u8; 32])
+) -> bool {
     let Ed25519 { curve, cofactor } = ed25519();
 
     let secret_key: [u8] = secret_key;
