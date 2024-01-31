@@ -1,4 +1,5 @@
-## ECDH Verifier in Noir
+## About
+ECDH Verifier written in Noir.
 
 ### Usage
 
@@ -18,3 +19,6 @@
 - Every TLS session involves a handshake where the client(user) and the server agree on a shared secret key which can be later used to encrypt/decrypt messages exchanged between them. If an user can prove that he/she is either a client or a server, then the interaction can be authenticated onchain. This can be used for a lot use cases such as anonymous web authentication, access control systems, and so on.
 
 - Assume an ideal communication protocol that is instantiated between person A and person B with the shared secret key. One of the parties can anonymously prove such communication onchain.
+
+## Disclaimer
+This is experimental software and is provided on an "as is" and "as available" basis. We do not give any warranties and will not be liable for any losses incurred through any use of this code base.
