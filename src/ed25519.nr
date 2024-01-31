@@ -36,3 +36,4 @@ pub fn create_point_from_bytes(x: [u8; 32], y: [u8; 32]) -> Point {
 
     Point::from_affine(Fp::from_bytes(x), Fp::from_bytes(y))
 }
+
