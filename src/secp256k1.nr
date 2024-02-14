@@ -11,10 +11,8 @@ pub fn verify_ecdh(secret_key: [u8; 32], shared_key: Point, pub_key: Point) -> b
     assert(is_point_valid(curve, pub_key));
     assert(is_point_valid(curve, shared_key));
 
-    let secret_key: [u8] = secret_key;
-
     // range check implicitly performed here
-    let secret_key = Fq::from_bytes(secret_key);
+    let secret_key = Fq::from_bytes(secret_key.as_slice());
 
     // shared key is computed by multiplying secret key with counter party's public key
     let computed_shared_key_point = scalar_mul(curve, secret_key, pub_key);
@@ -32,8 +30,5 @@ fn scalar_mul(curve: Curve, scalar: Fq, point: Point) -> Point {
 }
 
 pub fn create_affine_point_from_bytes(x: [u8; 32], y: [u8; 32]) -> Point {
-    let x: [u8] = x;
-    let y: [u8] = y;
-
-    Point::from_affine(Fp::from_bytes(x), Fp::from_bytes(y))
+    Point::from_affine(Fp::from_bytes(x.as_slice()), Fp::from_bytes(y.as_slice()))
 }
