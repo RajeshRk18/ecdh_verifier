@@ -5,6 +5,6 @@ authors = ["Rajesh Kanna"]
 compiler_version = ">=0.22.0"
 
 [dependencies]
-bigint = { tag = "v0.1.0", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/biguint" }
-curves = { tag = "v0.1.0", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/curves" }
-field = { tag = "v0.1.0", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/primefield" }
+bigint = { tag = "v0.1.1", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/biguint" }
+curves = { tag = "v0.1.1", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/curves" }
+field = { tag = "v0.1.1", git = "https://github.com/RajeshRk18/noir_crypto", directory = "crates/primefield" }

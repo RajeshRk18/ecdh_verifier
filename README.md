@@ -1,18 +1,31 @@
 ## About
-ECDH Verifier written in Noir.
+ECDH Verifier written in Noir. Currently supports Curve25519 and Secp256k1.
 
 ### Usage
 
-```rust
-// This assumes that the keys are generated using Ed25519 curve
-    use dep::ecdh_decryption_verifier::ed25519::verify_ecdh;
+Nargo.toml
+```
+[dependencies]
+ecdh_verifier = { tag = "v0.1.1", git = "https://github.com/RajeshRk18/ecdh_verifier.git" }
+```
+---
 
-    fn main(secret_key: [u8; 32], shared_key: ([u8; 32], [u8; 32]), pub_key: ([u8; 32], [u8; 32])) {
+```rust
+// This assumes that the keys are generated using Curve25519.
+    use dep::ecdh_verifier::curve25519::verify_ecdh;
+
+    fn main(secret_key: [u8; 32], shared_key: [u8; 32], sign_shared: u8, pub_key: [u8; 32], sign_pub: u8) {
 
         assert(verify_ecdh(secret_key, shared_key, pub_key));
 
     }
 ```
+
+### Note
+
+- As given points(Montgomery) have been converted to Edwards Point, it is expected to give the sign of the points.
+- Support for Montgomery operations are currently wip. It is maintained in a separate branch.
+- If montgomery native operations are implemented, we can avoid the `sign` parameter.
 
 ### Applications
 
